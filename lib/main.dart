@@ -1,3 +1,5 @@
+import 'package:client/core/theme/app_theme.dart';
+import 'package:client/views/sign_up/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,8 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Spotify Clone',
-      theme: ThemeData.dark(),
-      home: const Placeholder(),
+      theme: AppTheme.darkThemeMode,
+      home: const SignUpView(),
     );
   }
 }
