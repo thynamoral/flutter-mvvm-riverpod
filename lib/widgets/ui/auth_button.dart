@@ -2,8 +2,11 @@ import 'package:client/core/theme/app_color_pallete.dart';
 import 'package:client/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class SignUpButton extends StatelessWidget {
-  const SignUpButton({super.key});
+class AuthButton extends StatelessWidget {
+  const AuthButton({super.key, required this.text, required this.onPressed});
+
+  final String text;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,17 @@ class SignUpButton extends StatelessWidget {
         borderRadius: AppTheme.borderRadius(),
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColor.transparentColor,
           shadowColor: AppColor.transparentColor,
         ),
-        child: Text('Sign Up'),
+        child: Text(
+          text,
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
